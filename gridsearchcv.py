@@ -3,7 +3,7 @@ from sklearn.model_selection import GridSearchCV
 from binary_xgb import reshape_labels, reshape_data
 import torch
 
-DATA = "/Users/hassaantariq/Projects/Dalhousie_MRI_Neural_Data_Hackathon/tensors"
+DATA = "/Users/.../Projects/Dalhousie_MRI_Neural_Data_Hackathon/tensors"
 
 elr = torch.load(DATA + "/elr.pt") # (904, 368,176)
 e_labels = torch.load(DATA + "/emotion_labels.pt")
