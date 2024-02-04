@@ -72,15 +72,16 @@ for task in tasks:
     plt.savefig(f"/home/user002/projects/def-sponsor00/user002/standardizedplots/{task}_mean_values.png")
 
 # Perform t-tests between pairs of tasks
-#for i in range(len(tasks)):
-#    for j in range(i + 1, len(tasks)):
-#        task_1 = tasks[i]
-#        task_2 = tasks[j]
-#        min_length = min(len(trimmed_mean_values[tasks.index(task_1)]), len(trimmed_mean_values[tasks.index(task_2)]))
-#        t_statistic, p_value = ttest_ind(trimmed_mean_values[tasks.index(task_1)][:min_length], 
-#                                          trimmed_mean_values[tasks.index(task_2)][:min_length], 
-#                                          alternative='two-sided', equal_var=False)
-#        
-#        print(f'Two-sample t-test for {task_1} vs {task_2}:')
-#        print(f'T-statistic: {t_statistic}')
-#        print(f'P-value: {p_value}')
+for i in range(len(tasks)):
+    for j in range(i + 1, len(tasks)):
+        task_1 = tasks[i]
+        task_2 = tasks[j]
+        print(mean_values_dict[task_1][:min_length].shape, mean_values_dict[task_2][:min_length].shape)
+        # Flatten the arrays into one dimension
+        array1 = np.array(mean_values_dict[task_1]).flatten()
+        array2 = np.array(mean_values_dict[task_2]).flatten()
+        # Run the t-test
+        t_statistic, p_value = ttest_ind(array1, array2)
+        print(f’Two-sample t-test for {task_1} vs {task_2}:‘)
+        print(f’T-statistic: {t_statistic}‘)
+        print(f’P-value: {p_value}’)
