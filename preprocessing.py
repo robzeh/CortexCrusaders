@@ -51,7 +51,7 @@ for task in tasks:
     trimmed_mean_values = [arr[:min_length] for arr in mean_values_list]
 
     sorted_indices = np.argsort(mean_values)[::-1]
-    top_10_indices = sorted_indices[:10]
+    top_10_indices = sorted_indices[:20]
     top_10_indices_dict[task] = top_10_indices
 
     flat_indices = [index for sublist in top_10_indices for index in sublist]
@@ -82,6 +82,6 @@ for i in range(len(tasks)):
         array2 = np.array(mean_values_dict[task_2]).flatten()
         # Run the t-test
         t_statistic, p_value = ttest_ind(array1, array2)
-        print(f’Two-sample t-test for {task_1} vs {task_2}:‘)
-        print(f’T-statistic: {t_statistic}‘)
-        print(f’P-value: {p_value}’)
+        print(f"Two-sample t-test for {task_1} vs {task_2}:")
+        print(f"T-statistic: {t_statistic}")
+        print(f"P-value: {p_value}")
