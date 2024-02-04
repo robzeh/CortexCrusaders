@@ -1,4 +1,4 @@
-### For testing only, did not provide the values as expected
+### For testing only
 
 import torch
 import numpy as np
